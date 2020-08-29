@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    app:
+        build:
+          context: ./linux
+        container_name: centOsForZappa
+        stdin_open: true
+        tty: true
+        ports:
+            - "40022:22"
+            - "40080:80"
+            - "43000:3000"
+            - "48000:8000"
+            - "43306:3306"
+        volumes:
+            - .:/share
+        privileged: true
+        command: /bin/zsh

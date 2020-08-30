@@ -40,4 +40,7 @@ RUN echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
 RUN source ~/.zshrc && pyenv install 3.8.0 && pyenv global 3.8.0 && pip install -U pip
 
 # install zappa
-RUN source ~/.zshrc && pip install zappa
+RUN source ~/.zshrc && pip install zappa && pip install virtualenv && virtualenv venv && source venv/bin/activate
+
+# 環境構築
+RUN source ~/.zshrc && pip install flask
